@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Unit Converter</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    
+    h1 {
+      text-align: center;
+    }
+    
+    .converter {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    
+    .input-field {
+      margin-right: 10px;
+    }
+    
+    .result {
+      text-align: center;
+      margin-top: 20px;
+    }
+  </style>
+  <script>
+    function convert() {
+      var input = document.getElementById("inputValue").value;
+      var unit = document.getElementById("unit").value;
+      var result;
+      
+      // Perform the conversion based on the selected unit
+      switch (unit) {
+        case "cm_to_in":
+          result = input * 0.393701;
+          break;
+        case "in_to_cm":
+          result = input * 2.54;
+          break;
+        case "kg_to_lb":
+          result = input * 2.20462;
+          break;
+        case "lb_to_kg":
+          result = input * 0.453592;
+          break;
+        case "km_to_mi":
+          result = input * 0.621371;
+          break;
+        case "mi_to_km":
+          result = input * 1.60934;
+          break;
+        default:
+          result = "Invalid unit";
+          break;
+      }
+      
+      // Display the result
+      document.getElementById("result").innerHTML = result;
+    }
+  </script>
+</head>
+<body>
+  <h1>Unit Converter</h1>
+  
+  <div class="converter">
+    <input type="number" id="inputValue" class="input-field">
+    <select id="unit" class="input-field">
+      <option value="cm_to_in">cm to in</option>
+      <option value="in_to_cm">in to cm</option>
+      <option value="kg_to_lb">kg to lb</option>
+      <option value="lb_to_kg">lb to kg</option>
+      <option value="km_to_mi">km to mi</option>
+      <option value="mi_to_km">mi to km</option>
+    </select>
+    <button onclick="convert()">Convert</button>
+  </div>
+  
+  <div class="result">
+    <p>Result: <span id="result"></span></p>
+  </div>
+</body>
+</html>
